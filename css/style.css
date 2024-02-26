@@ -1,0 +1,27 @@
+/* Start initialization */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Cairo", sans-serif;
+}
+/* end initialization */
+/* Start variables */
+:root {
+  --main-clr: #fff;
+  --sec-padding: 50px;
+  --p-clr: #777;
+}
+/* end variables */
+/* Start the main elements */
+.container {
+  width: 90%;
+  margin: auto;
+}
+h2.title {
+}
+/* end the main elements */
