@@ -22,13 +22,55 @@ a {
 /* end variables */
 /* Start the main elements */
 .container {
-  width: calc(90vw - 270px);
   position: absolute;
   top: 0;
-  left: 333px;
+  left: 320px;
   min-height: 100vh;
 }
+@media (min-width: 768px) {
+  .container {
+    width: 700px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 70%;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    width: 70%;
+  }
+}
 h2.title {
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: capitalize;
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+  position: relative;
+}
+h2.title::before {
+  content: "";
+  position: absolute;
+  top: -23px;
+  font-size: 13px;
+  color: #777;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+h2.title span {
+  color: var(--main-clr);
+}
+h2.title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  position: absolute;
+  background-color: var(--main-clr);
+  bottom: 0;
+  left: 0;
 }
 /* end the main elements */
 /* start header */
@@ -38,16 +80,26 @@ body {
 }
 header {
   width: 270px;
-  max-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: fixed;
   top: 0;
-  left: 5vw;
+  left: 50px;
   padding: 40px 20px;
   overflow-y: scroll;
   background-color: #eee;
+}
+@media (max-width: 991px) {
+  header {
+    display: none;
+  }
+  .container {
+    position: relative;
+    left: 0;
+    margin: auto;
+  }
 }
 header img {
   width: 150px;
@@ -132,7 +184,7 @@ header .copyright p span {
 /* end header */
 /* start home */
 .home {
-  padding-left: 50px;
+  padding: 50px;
   height: 100vh;
   background-image: url(../images/background.jpg);
   background-size: cover;
@@ -203,6 +255,183 @@ header .copyright p span {
   color: var(--main-clr);
 }
 /* end home */
+/* start about */
+.about {
+  padding: 100px 50px 50px;
+}
+.about h2.title::before {
+  content: "about us";
+}
+.about p {
+  text-indent: 20px;
+  line-height: 1.6;
+  color: #777;
+  margin-bottom: 30px;
+}
+.about .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  margin-bottom: 50px;
+}
+.about .cards .card {
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 0 10px #ddd;
+  text-align: center;
+  border-bottom: 2px solid var(--clr);
+}
+.about .cards .card i {
+  font-size: 35px;
+  margin: 20px 0;
+  color: var(--clr);
+}
+.about .cards .card h2 {
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+}
+.about .hire {
+  padding: 50px;
+  background-color: #00bcd496;
+}
+.about .hire h2 {
+  font-size: 31px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.about .hire button {
+  padding: 8px 20px;
+  border: 1px solid #000;
+  border-radius: 3px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+.about .hire button::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.about .hire button:hover::before {
+  left: 0;
+}
+.about .hire button a {
+  color: #000;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.about .hire button:hover a {
+  color: #fff;
+  z-index: 100;
+  position: relative;
+}
+/* end about */
+/* start services */
+.services {
+  padding: 50px;
+}
+.services h2.title {
+  margin-bottom: 100px;
+}
+.services h2.title::before {
+  content: "what i do";
+}
+.services .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.services .cards .card {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 10px #ddd;
+  margin: 0 10px 90px;
+}
+.services .cards .card .icon {
+  background-color: var(--clr);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  width: 110px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: -50px;
+  transform: translateX(-50%) rotate(90deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.services .cards .card .icon i {
+  transform: rotate(-90deg);
+  font-size: 35px;
+  color: #fff;
+}
+.services .cards .card h2 {
+  margin-top: 60px;
+  text-transform: capitalize;
+  font-weight: 400;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.services .cards .card p {
+  color: #777;
+  line-height: 1.4;
+}
+.statistics {
+  padding: 100px 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin-bottom: 50px;
+  position: relative;
+  color: #fff;
+}
+.statistics::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #00000063;
+}
+.statistics h2 {
+  text-align: center;
+  position: relative;
+  z-index: 100;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.statistics p {
+  position: relative;
+  z-index: 100;
+  font-size: 20px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  text-align: center;
+}
+/* end services */
+/* Animation */
 @keyframes home-h2 {
   0%,
   50%,
