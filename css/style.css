@@ -431,6 +431,74 @@ header .copyright p span {
   text-align: center;
 }
 /* end services */
+/* start skills */
+.skills {
+  padding: 50px;
+}
+.skills h2.title::before {
+  content: "my speciality";
+}
+.skills p {
+  color: #777;
+  line-height: 1.6;
+  text-indent: 20px;
+  margin-bottom: 40px;
+}
+.skills .progress-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.skills .progress-box .card {
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.skills .progress-box .card > span {
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  display: block;
+}
+.skills .progress-box .card .percent {
+  width: 100%;
+  height: 5px;
+  position: relative;
+  background-color: #ddd;
+}
+.skills .progress-box .card .percent .percentage {
+  position: absolute;
+  top: -29px;
+  font-size: 16px;
+  left: calc(var(--percent) - 10px);
+  color: var(--clr);
+  font-weight: 800;
+}
+.skills .progress-box .card .percent .fill {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: var(--percent);
+  background-color: var(--clr);
+}
+.skills .progress-box .card .percent .fill::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--clr);
+  position: absolute;
+  top: -2.5px;
+  right: -5px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+/* end skills */
+/* start education */
+/* end education */
 /* Animation */
 @keyframes home-h2 {
   0%,
