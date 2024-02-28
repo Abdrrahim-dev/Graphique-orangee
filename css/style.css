@@ -499,6 +499,78 @@ header .copyright p span {
 /* end skills */
 /* start education */
 /* end education */
+/* start experience */
+.experience {
+  padding: 50px;
+}
+.experience h2.title::before {
+  content: "experience";
+}
+.experience .exp-box {
+  padding: 50px 0 0 50px;
+  position: relative;
+}
+.experience .exp-box::before {
+  content: "";
+  width: 4px;
+  height: calc(100% - 50px);
+  display: block;
+  background-color: #eee;
+  position: absolute;
+  left: 9px;
+  top: 62px;
+}
+.experience .exp-box::after {
+  font-family: "Font Awesome 6 Free";
+  content: "\f111";
+  font-size: 35px;
+  color: #ddd;
+  position: absolute;
+  left: -6px;
+  bottom: -47px;
+}
+.experience .exp-box .card {
+  padding: 20px;
+  position: relative;
+  background-color: #eee;
+  margin-bottom: 20px;
+}
+.experience .exp-box .card:last-child {
+  margin-bottom: 0;
+}
+.experience .exp-box .card h2 {
+  font-weight: 400;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.experience .exp-box .card span {
+  color: #777;
+  padding-left: 5px;
+}
+.experience .exp-box .card p {
+  line-height: 1.6;
+  color: #777;
+  letter-spacing: 0.2px;
+}
+.experience .exp-box .card::after {
+  font-family: "Font Awesome 6 Free";
+  content: "\f253";
+  font-weight: 900;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 22px;
+  background-color: var(--clr);
+  color: #fff;
+  top: 9px;
+  left: -68px;
+  border: 6px solid #eee;
+}
+/* end experience */
 /* Animation */
 @keyframes home-h2 {
   0%,
