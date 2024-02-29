@@ -7,10 +7,6 @@
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   scroll-behavior: smooth;
-  font-family: "Cairo", sans-serif;
-}
-a {
-  text-decoration: none;
 }
 /* end initialization */
 /* Start variables */
@@ -18,6 +14,8 @@ a {
   --main-clr: #ff5722;
   --sec-padding: 50px;
   --p-clr: #777;
+  --main-font: "Montserrat", sans-serif;
+  --p-font: "Poppins", sans-serif;
 }
 /* end variables */
 /* Start the main elements */
@@ -29,7 +27,7 @@ a {
 }
 @media (min-width: 768px) {
   .container {
-    width: 700px;
+    width: 800px;
   }
 }
 @media (min-width: 992px) {
@@ -45,7 +43,7 @@ a {
 h2.title {
   font-size: 30px;
   font-weight: 400;
-  text-transform: capitalize;
+  text-transform: uppercase;
   padding-bottom: 10px;
   margin-bottom: 50px;
   position: relative;
@@ -72,6 +70,21 @@ h2.title::after {
   bottom: 0;
   left: 0;
 }
+a {
+  text-decoration: none;
+  font-family: var(--p-font);
+}
+p,
+span {
+  font-family: var(--p-font);
+  font-weight: 300;
+}
+h2 {
+  font-family: var(--main-font);
+  letter-spacing: -1px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 /* end the main elements */
 /* start header */
 body {
@@ -90,6 +103,25 @@ header {
   padding: 40px 20px;
   overflow-y: scroll;
   background-color: #eee;
+}
+header.phone {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+header .exit {
+  display: none;
+}
+header.phone .exit {
+  display: block;
+  color: #000;
+  font-size: 35px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 @media (max-width: 991px) {
   header {
@@ -122,6 +154,7 @@ header > p {
   color: #777;
   text-align: center;
   margin-bottom: 25px;
+  line-height: 1.6;
 }
 header > p span {
   color: var(--main-clr);
@@ -173,13 +206,11 @@ header .copyright {
   text-transform: capitalize;
   font-weight: 200;
   line-height: 2;
-}
-header .copyright p {
-  font-weight: 400;
+  font-family: var(--p-font);
+  font-size: 14px;
 }
 header .copyright p span {
   color: var(--main-clr);
-  font-weight: 600;
 }
 /* end header */
 /* start home */
@@ -192,6 +223,25 @@ header .copyright p span {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  position: relative;
+}
+.home .bars {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: none;
+}
+.home .bars i {
+  color: #fff;
+  font-size: 25px;
+}
+.home .bars.phone i {
+  color: #000;
+}
+@media (max-width: 991px) {
+  .home .bars {
+    display: block;
+  }
 }
 .home .h2 {
   position: relative;
@@ -202,7 +252,6 @@ header .copyright p span {
   display: block;
   font-size: 62px;
   color: #fff;
-  text-transform: capitalize;
   margin-bottom: 20px;
   position: absolute;
   top: 0;
@@ -216,6 +265,11 @@ header .copyright p span {
   animation: home-h2 8s linear 4s infinite;
   -webkit-animation: home-h2 8s linear 4s infinite;
   opacity: 0;
+}
+@media (max-width: 400px) {
+  .home .h2 h2 {
+    font-size: 50px;
+  }
 }
 .home p {
   color: #fff;
@@ -232,6 +286,24 @@ header .copyright p span {
   z-index: 100;
   position: relative;
   height: 36px;
+  overflow: hidden;
+}
+.home button::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.home button:hover::before {
+  left: 0;
 }
 .home button a {
   color: #fff;
@@ -240,6 +312,10 @@ header .copyright p span {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 120px;
+  font-size: 14px;
+}
+.home button:hover a {
+  color: #000;
 }
 .home button a:first-of-type {
   animation: home-button 8s linear infinite;
@@ -287,8 +363,9 @@ header .copyright p span {
 }
 .about .cards .card h2 {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
+  letter-spacing: 0;
 }
 .about .hire {
   padding: 50px;
@@ -299,6 +376,11 @@ header .copyright p span {
   font-weight: 700;
   line-height: 1.5;
   margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+  .about .hire h2 {
+    font-size: 25px;
+  }
 }
 .about .hire button {
   padding: 8px 20px;
@@ -380,6 +462,10 @@ header .copyright p span {
   transform: rotate(-90deg);
   font-size: 35px;
   color: #fff;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
 }
 .services .cards .card h2 {
   margin-top: 60px;
@@ -396,7 +482,8 @@ header .copyright p span {
   padding: 100px 50px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 50px;
   background-image: url("../images/background.jpg");
   background-size: cover;
   background-position: center;
@@ -448,6 +535,11 @@ header .copyright p span {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+}
+@media (max-width: 350px) {
+  .skills .progress-box {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }
 .skills .progress-box .card {
   text-transform: capitalize;
@@ -539,9 +631,11 @@ header .copyright p span {
   margin-bottom: 0;
 }
 .experience .exp-box .card h2 {
-  font-weight: 400;
+  font-weight: 600;
   display: inline-block;
   margin-bottom: 20px;
+  font-size: 20px;
+  letter-spacing: 0;
 }
 .experience .exp-box .card span {
   color: #777;
@@ -551,6 +645,14 @@ header .copyright p span {
   line-height: 1.6;
   color: #777;
   letter-spacing: 0.2px;
+}
+@media (max-width: 425px) {
+  .experience .exp-box .card h2 {
+    font-size: 18px;
+  }
+  .experience .exp-box .card p {
+    font-size: 12px;
+  }
 }
 .experience .exp-box .card::after {
   font-family: "Font Awesome 6 Free";
@@ -571,6 +673,123 @@ header .copyright p span {
   border: 6px solid #eee;
 }
 /* end experience */
+/* start work */
+.work {
+  padding: 100px 50px 50px;
+}
+.work h2.title::before {
+  content: "my work";
+  color: #fff;
+}
+/* end work */
+/* start contact */
+.contact {
+  padding: 50px;
+  background-color: #000;
+}
+.contact h2.title {
+  color: #fff;
+}
+.contact h2.title::before {
+  content: "get in touch";
+  color: #fff;
+}
+.contact .contact-box {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 640px) {
+  .contact .contact-box {
+    flex-direction: column;
+    gap: 80px;
+  }
+}
+.contact .contact-box .left .box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.contact .contact-box .left .box i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  background-color: #eee;
+  color: #000;
+}
+.contact .contact-box .left .box span {
+  font-size: 17px;
+  padding-left: 20px;
+  color: #777;
+}
+@media (max-width: 375px) {
+  .contact .contact-box .left .box i {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+  .contact .contact-box .left .box span {
+    font-size: 15px;
+    padding-left: 10px;
+  }
+}
+.contact .contact-box .right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+}
+.contact .contact-box .right a {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact .contact-box .right a i {
+  font-size: 40px;
+}
+.contact .contact-box .right a span {
+  font-size: 20px;
+  text-transform: capitalize;
+  padding-left: 10px;
+}
+.contact .contact-box .right a:hover i,
+.contact .contact-box .right a:hover span {
+  color: var(--main-clr);
+}
+/* end contact */
+/* start footer */
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  color: #000;
+  font-family: var(--p-font);
+}
+.footer a {
+  color: var(--main-clr);
+}
+/* end footer */
+@media (max-width: 400px) {
+  .home,
+  .services,
+  .about,
+  .skills,
+  .experience,
+  .work,
+  .contact {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 /* Animation */
 @keyframes home-h2 {
   0%,
@@ -586,11 +805,11 @@ header .copyright p span {
   }
   7.5%,
   48.5% {
-    transform: translateY(-70px);
-    -webkit-transform: translateY(-70px);
-    -moz-transform: translateY(-70px);
-    -ms-transform: translateY(-70px);
-    -o-transform: translateY(-70px);
+    transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
     opacity: 1;
     z-index: 100;
   }
