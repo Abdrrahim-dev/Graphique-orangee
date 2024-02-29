@@ -26,3 +26,19 @@ exit.addEventListener("click", function () {
   header.style.display = "none";
   home.style.visibility = "visible";
 });
+//
+// let cards = document.querySelectorAll(".card");
+// let delay = 0;
+// cards.forEach((ele) => {
+//   delay += 0.1;
+//   ele.transitionDelay = `${delay}s`;
+//   ele.style.transform = "translateY(150px)";
+//   ele.style.transition = "0.7s";
+// });
+// window.addEventListener("scroll", function () {
+//   cards.forEach((ele) => {
+//     if (ele.parentElement.parentElement.offsetTop - 100 < window.scrollY) {
+//       ele.style.transform = "translateY(0)";
+//     }
+//   });
+// });
